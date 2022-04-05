@@ -1,0 +1,71 @@
+     Log On Request     |
+         Body           |
+<---------------------> |
+| msgType | accountId | |
+   (Int8)    (Int64)    |
+
+Body Size: 72 bits - 9 bytes
+Total Size:72 bits - 9 bytes
+
+     Log Off Request    |
+         Body           |
+<---------------------> |
+| msgType | accountId | |
+   (Int8)    (Int64)    |
+
+Body Size: 72 bits - 9 bytes
+Total Size:72 bits - 9 bytes
+
+            Log On Response            |
+                 Body                  |
+<------------------------------------> |
+| msgType | accountId | responseType | |
+   (Int8)    (Int64)        (Int8)     |
+
+Body Size: 80 bits - 10 bytes
+Total Size:80 bits - 10 bytes
+
+            Log Off Response           |
+                 Body                  |
+<------------------------------------> |
+| msgType | accountId | responseType | |
+   (Int8)    (Int64)        (Int8)     |
+
+Body Size: 80 bits - 10 bytes
+Total Size:80 bits - 10 bytes
+
+                 Bootstrap Request Message Layout                  |
+                              Body                                 |
+<----------------------------------------------------------------> |
+| msgType | correlationId | bootstrapType | exchangeId | accountId |
+  (Int8)       (Int64)          (Int8)        (Int16)     (Int64)  |
+
+Body Size: 160 bits - 20 bytes
+Total Size:160 bits - 20 bytes
+
+                                Order Routing Request Message Layout                                      |
+                                              Body                                                        |
+<-------------------------------------------------------------------------------------------------------> |
+| msgType | accountId | orderId | side | executionType | exchangeId | instrumentId | orderPx | orderQty ] |
+   (Int8)    (Int64)    (Int64)  (Int8)      (Int8)        (Int16)       (Int16)    (Double64) (Double64) |
+
+Body Size:  312 bits - 39 bytes
+Total Size: 312 bits - 39 bytes
+
+                          Bootstrap Response Message Layout                       |
+                                      Body                                        |
+<-------------------------------------------------------------------------------> |
+| msgType | accountId | bootstrapType | exchangeId | correlationId | responseType |
+  (Int8)     (Int64)       (Int8)        (Int16)        (Int64)         (Int8)    |
+
+Body Size: 168 bits - 21 bytes
+Total Size:168 bits - 21 bytes
+
+                                   Order Routing Response Message Layout                                   |
+                                                  Body                                                     |
+<--------------------------------------------------------------------------------------------------------> |
+| msgType | accountId | orderId | exchangeId | instrumentId | executionType | tradePrice | tradeQuantity | |
+   (Int8)    (Int64)    (Int64)     (Int16)       (Int16)         (Int8)      (Double64)     (Double64)    |
+
+Body Size: 304 bits - 38 bytes
+Total Size:304 bits - 38 bytes
